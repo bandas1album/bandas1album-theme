@@ -39,9 +39,12 @@ function get_rest_featured_image( $object, $field_name, $request ) {
 function get_rest_genres( $object, $field_name, $request ) {
     $postID = $object['id'];
     $terms = get_the_terms($postID, 'generos_album');
-
+    
     foreach($terms as $term) {
-        $genres[] = $term->name;
+        $genres[] = [
+            'name' => $term->name,
+            'slug' => $term->slug
+        ];
     }
 
     $out = $genres;
