@@ -1,5 +1,6 @@
 <?php
-// Register REST Responsive
+
+//Register REST Responsive
 
 add_action('rest_api_init', 'register_rest_fields' );
 
@@ -14,9 +15,9 @@ function register_rest_fields(){
     );
 
     register_rest_field(array('album'),
-        'navigation',
+        'genres',
         array(
-            'get_callback'    => 'get_rest_navigation',
+            'get_callback'    => 'get_rest_genres',
             'update_callback' => null,
             'schema'          => null,
         )
@@ -35,13 +36,14 @@ function get_rest_featured_image( $object, $field_name, $request ) {
     return $out;
 }
 
-function get_rest_navigation( $object, $field_name, $request ) {
-    global $post;
-    $post = get_post($object['id']);
-  
-      $out = Array(
-        'prev' => get_previous_post()->post_name,
-        'next' => get_next_post()->post_name
-      );
-      return $out;
-  }
+function get_rest_genres( $object, $field_name, $request ) {
+    $postID = $object['id'];
+    $terms = get_the_terms($postID, 'generos_album');
+
+    foreach($terms as $term) {
+        $genres[] = $term->name;
+    }
+
+    $out = $genres;
+    return $out;
+}
