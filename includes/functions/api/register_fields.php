@@ -31,7 +31,9 @@ function get_rest_featured_image( $object, $field_name, $request ) {
 
     $out = Array(
       'thumbnail' => $thumbnail,
-      'full' => $full
+      'thumbnail_webp' => $thumbnail . '.webp',
+      'full' => $full,
+      'full_webp' => $thumbnail . '.webp',
     );
     return $out;
 }
