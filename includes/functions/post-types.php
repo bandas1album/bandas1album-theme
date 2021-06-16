@@ -50,6 +50,7 @@ function register_cpt() {
     'show_admin_column' => true,
     'query_var'         => true,
     'show_in_rest'      => true,
+    'rest_base'         => 'generos_album'
   );
 
   register_taxonomy( 'generos_album', 'album', $args );
