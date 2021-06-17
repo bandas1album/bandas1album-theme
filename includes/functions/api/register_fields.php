@@ -14,6 +14,15 @@ function register_rest_fields(){
         )
     );
 
+    register_rest_field(array('generos_album'),
+        'images',
+        array(
+            'get_callback'    => 'get_rest_genre_banner',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+
     register_rest_field(array('album'),
         'genres',
         array(
@@ -34,6 +43,19 @@ function get_rest_featured_image( $object, $field_name, $request ) {
       'thumbnail_webp' => $thumbnail . '.webp',
       'full' => $full,
       'full_webp' => $thumbnail . '.webp',
+    );
+    return $out;
+}
+
+function get_rest_genre_banner( $object, $field_name, $request ) {
+    $postID = $object['id'];
+    $banner = get_field('banner', 'generos_album_' . $postID);
+
+    $out = Array(
+      'banner' => [
+        'normal' => $banner,
+        'webp' => $banner . '.webp',
+      ]
     );
     return $out;
 }
