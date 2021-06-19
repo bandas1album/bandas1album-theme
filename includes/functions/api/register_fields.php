@@ -22,15 +22,6 @@ function register_rest_fields(){
             'schema'          => null,
         )
     );
-
-    register_rest_field(array('album'),
-        'genres',
-        array(
-            'get_callback'    => 'get_rest_genres',
-            'update_callback' => null,
-            'schema'          => null,
-        )
-    );
 }
 
 function get_rest_featured_image( $object, $field_name, $request ) {
@@ -42,7 +33,7 @@ function get_rest_featured_image( $object, $field_name, $request ) {
       'thumbnail' => $thumbnail,
       'thumbnail_webp' => $thumbnail . '.webp',
       'full' => $full,
-      'full_webp' => $thumbnail . '.webp',
+      'full_webp' => $full . '.webp',
     );
     return $out;
 }
@@ -65,3 +56,16 @@ function add_rand_orderby_rest_post_collection_params( $query_params ) {
 	return $query_params;
 }
 add_filter( 'rest_album_collection_params', 'add_rand_orderby_rest_post_collection_params' );
+
+function add_metavalue_orderby_rest_post_collection_params( $query_params ) {
+	$query_params['orderby']['enum'][] = 'meta_value';
+	return $query_params;
+}
+add_filter( 'rest_album_collection_params', 'add_metavalue_orderby_rest_post_collection_params' );
+
+function add_custom_query_rest_album( $args, $request ) {
+    $args['meta_key']   = $request['meta_key'];
+
+    return $args;
+}
+add_filter('rest_album_query', 'add_custom_query_rest_album', 10, 2);
