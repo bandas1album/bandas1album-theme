@@ -1,7 +1,7 @@
 <?php
 
 function initCors( $value ) {
-  $origin_url = 'https://bandas1album.com.br';
+  $origin_url = '*';
 
   header( 'Access-Control-Allow-Origin: ' . $origin_url );
   header( 'Access-Control-Allow-Methods: GET' );
