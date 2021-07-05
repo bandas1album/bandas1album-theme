@@ -64,7 +64,8 @@ function add_metavalue_orderby_rest_post_collection_params( $query_params ) {
 add_filter( 'rest_album_collection_params', 'add_metavalue_orderby_rest_post_collection_params' );
 
 function add_custom_query_rest_album( $args, $request ) {
-    $args['meta_key']   = $request['meta_key'];
+    $args['meta_key'] = $request['meta_key'];
+    $args['meta_value'] = $request['meta_value'];
 
     return $args;
 }
