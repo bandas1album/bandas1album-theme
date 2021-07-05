@@ -1,5 +1,6 @@
 <?php
 // API
+include('includes/functions/api/cors.php');
 include('includes/functions/api/register_fields.php');
 include('includes/functions/api/custom_endpoints.php');
 
