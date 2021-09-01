@@ -18,7 +18,7 @@ function register_cpt() {
       'not_found_in_trash' => 'Nenhuma álbum encontrada'
     ),
     'public' => true,
-    'hierarchical' => false, 
+    'hierarchical' => true, 
     'has_archive' => false,
     'menu_icon' => 'dashicons-album',
     'supports' => array(
@@ -28,7 +28,11 @@ function register_cpt() {
     ),
     'exclude_from_search' => true,
     'can_export' => true,
-    'show_in_rest' => true
+    'show_ui' => true,
+    'show_in_rest' => true,
+    'show_in_graphql' => true,
+    'graphql_single_name' => 'album',
+    'graphql_plural_name' => 'albums',
   ));
 
   $labels = array(
