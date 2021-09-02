@@ -54,6 +54,9 @@ function register_cpt() {
     'show_admin_column' => true,
     'query_var'         => true,
     'show_in_rest'      => true,
+    'show_in_graphql' => true,
+    'graphql_single_name' => 'generoAlbum',
+    'graphql_plural_name' => 'generosAlbum',
     'rest_base'         => 'generos_album'
   );
 
