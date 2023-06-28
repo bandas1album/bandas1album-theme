@@ -1,4 +1,4 @@
-
+<?php get_header(); ?>
   <main class="main">
     <section class="wrapper">
       <img data-skip-lazy src="<?php echo get_template_directory_uri() . '/assets/img/logo.svg'; ?>" width="160" height="51" alt="Bandas 1 Álbum">
@@ -21,3 +21,4 @@
       </a>
     </footer>
   </main>
+<?php get_footer(); ?>
