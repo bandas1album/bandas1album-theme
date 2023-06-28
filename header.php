@@ -21,9 +21,20 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body, .main { height: 100%; }
     html { font-size: 16px; }
-    body { display: flex; align-items: center; justify-content: center; padding-top: 5rem; background-color: var(--color-primary-shade); font-family: 'Montserrat', sans-serif; font-weight: 400; }
+    body { display: flex; align-items: center; justify-content: center; padding-top: 1rem; background-color: var(--color-primary-shade); font-family: 'Montserrat', sans-serif; font-weight: 400; }
+    @media (min-width: 768px) {
+      body { padding-top: 5rem; }
+    }
+    strong { font-weight: 500; }
     .main { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
-    .wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; width: calc(100% - 1.5rem); max-width: 40rem; border-radius: 0.25rem; padding: 2rem 3rem; background-color: var(--color-primary-tint); box-shadow: 0 0 2rem rgba(0,0,0,.1); }
+    .wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; width: calc(100% - 2rem); max-width: 40rem; border-radius: 0.25rem; padding: 1rem; background-color: var(--color-primary-tint); box-shadow: 0 0 2rem rgba(0,0,0,.1); }
+    @media (min-width: 768px) {
+      .wrapper { padding: 2rem 3rem; }
+    }
+    .wrapper p { color: var(--color-light); text-align: center; line-height: 150%; font-size: 1rem; }
+    @media (min-width: 768px) {
+      .wrapper p { font-size: 1.25rem; }
+    }
     .actions { width: 100%; display: flex; flex-direction: column; gap: 1rem; }
     .footer { display: flex; width: 100%; margin-top: auto; padding: 1rem; }
     .footer-badge { display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: 50%; background-color: var(--color-dark); text-decoration: none; transition: 0.2s transform ease; }
@@ -34,6 +45,10 @@
     .button:hover { opacity: 0.8; }
     .button.-primary { background-color: var(--color-primary-shade); color: var(--color-light); }
     .button.-tertiary { background-color: var(--color-tertiary); color: var(--color-primary-shade); }
+    @media (min-width: 768px) {
+      .button { padding: 1rem; font-size: 1rem; }
+      .button svg{ height: 1.5rem; }
+    }
   </style>
 </head>
 <body>
