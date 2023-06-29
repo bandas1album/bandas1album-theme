@@ -35,31 +35,106 @@ function register_cpt() {
     'graphql_plural_name' => 'albums',
   ));
 
-  $labels = array(
-    'name'              => 'Gêneros',
-    'singular_name'     => 'Gênero',
-    'search_items'      => 'Buscar Gêneros',
-    'all_items'         => 'Todos os Gêneros',
-    'edit_item'         => 'Editar Gênero',
-    'update_item'       => 'Atualizar Gênero',
-    'add_new_item'      => 'Adicionar Novo Gênero',
-    'new_item_name'     => 'Novo Gênero',
-    'menu_name'         => 'Gêneros',
-  );
-
-  $args = array(
-    'hierarchical'      => true,
-    'labels'            => $labels,
-    'show_ui'           => true,
-    'show_admin_column' => true,
-    'query_var'         => true,
-    'show_in_rest'      => true,
+  register_post_type('genre', // Register Custom Post Type
+    array(
+    'labels' => array(
+      'name' => 'Gêneros', // Rename these to suit
+      'singular_name' => 'Gênero',
+      'add_new' => 'Adicionar novo',
+      'add_new_item' => 'Adicionar novo gênero',
+      'edit' => 'Editar',
+      'edit_item' => 'Editar gênero',
+      'new_item' => 'Nova gênero',
+      'view' => 'Ver',
+      'view_item' => 'Ver gênero',
+      'search_items' => 'Buscar gênero',
+      'not_found' => 'Nenhum resultado',
+      'not_found_in_trash' => 'Nenhum gênero encontrada'
+    ),
+    'public' => true,
+    'hierarchical' => true, 
+    'has_archive' => false,
+    'menu_icon' => 'dashicons-album',
+    'supports' => array(
+      'title',
+      'editor',
+      'thumbnail'
+    ),
+    'exclude_from_search' => true,
+    'can_export' => true,
+    'show_ui' => true,
+    'show_in_rest' => true,
     'show_in_graphql' => true,
-    'graphql_single_name' => 'generoAlbum',
-    'graphql_plural_name' => 'generosAlbum',
-    'rest_base'         => 'generos_album'
-  );
+    'graphql_single_name' => 'album',
+    'graphql_plural_name' => 'albums',
+  ));
 
-  register_taxonomy( 'generos_album', 'album', $args );
+  register_post_type('release', // Register Custom Post Type
+    array(
+    'labels' => array(
+      'name' => 'Ano de lançamentos', // Rename these to suit
+      'singular_name' => 'Ano de lançamento',
+      'add_new' => 'Adicionar novo',
+      'add_new_item' => 'Adicionar novo ano',
+      'edit' => 'Editar',
+      'edit_item' => 'Editar ano',
+      'new_item' => 'Nova ano',
+      'view' => 'Ver',
+      'view_item' => 'Ver ano',
+      'search_items' => 'Buscar ano',
+      'not_found' => 'Nenhum resultado',
+      'not_found_in_trash' => 'Nenhum ano encontrada'
+    ),
+    'public' => true,
+    'hierarchical' => true, 
+    'has_archive' => false,
+    'menu_icon' => 'dashicons-album',
+    'supports' => array(
+      'title',
+      'editor',
+      'thumbnail'
+    ),
+    'exclude_from_search' => true,
+    'can_export' => true,
+    'show_ui' => true,
+    'show_in_rest' => true,
+    'show_in_graphql' => true,
+    'graphql_single_name' => 'album',
+    'graphql_plural_name' => 'albums',
+  ));
+
+  register_post_type('country', // Register Custom Post Type
+    array(
+    'labels' => array(
+      'name' => 'Países', // Rename these to suit
+      'singular_name' => 'País',
+      'add_new' => 'Adicionar novo',
+      'add_new_item' => 'Adicionar novo país',
+      'edit' => 'Editar',
+      'edit_item' => 'Editar país',
+      'new_item' => 'Nova país',
+      'view' => 'Ver',
+      'view_item' => 'Ver país',
+      'search_items' => 'Buscar país',
+      'not_found' => 'Nenhum resultado',
+      'not_found_in_trash' => 'Nenhum país encontrada'
+    ),
+    'public' => true,
+    'hierarchical' => true, 
+    'has_archive' => false,
+    'menu_icon' => 'dashicons-album',
+    'supports' => array(
+      'title',
+      'editor',
+      'thumbnail'
+    ),
+    'exclude_from_search' => true,
+    'can_export' => true,
+    'show_ui' => true,
+    'show_in_rest' => true,
+    'show_in_graphql' => true,
+    'graphql_single_name' => 'album',
+    'graphql_plural_name' => 'albums',
+  ));
 }
 add_action('init', 'register_cpt');
