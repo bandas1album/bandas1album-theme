@@ -65,11 +65,11 @@ function register_cpt() {
     'show_ui' => true,
     'show_in_rest' => true,
     'show_in_graphql' => true,
-    'graphql_single_name' => 'album',
-    'graphql_plural_name' => 'albums',
+    'graphql_single_name' => 'genre',
+    'graphql_plural_name' => 'genres',
   ));
 
-  register_post_type('release', // Register Custom Post Type
+  register_post_type('released', // Register Custom Post Type
     array(
     'labels' => array(
       'name' => 'Ano de lançamentos', // Rename these to suit
@@ -99,8 +99,8 @@ function register_cpt() {
     'show_ui' => true,
     'show_in_rest' => true,
     'show_in_graphql' => true,
-    'graphql_single_name' => 'album',
-    'graphql_plural_name' => 'albums',
+    'graphql_single_name' => 'released',
+    'graphql_plural_name' => 'releases',
   ));
 
   register_post_type('country', // Register Custom Post Type
@@ -133,8 +133,8 @@ function register_cpt() {
     'show_ui' => true,
     'show_in_rest' => true,
     'show_in_graphql' => true,
-    'graphql_single_name' => 'album',
-    'graphql_plural_name' => 'albums',
+    'graphql_single_name' => 'country',
+    'graphql_plural_name' => 'countries',
   ));
 }
 add_action('init', 'register_cpt');
